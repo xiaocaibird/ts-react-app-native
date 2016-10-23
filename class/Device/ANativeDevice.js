@@ -117,6 +117,9 @@ export class ANativeDevice extends ADevice {
         }
         return this._isAndroid;
     }
+    get IsPC() {
+        return false;
+    }
     getWindowWidth() {
         return Dimensions.get('window').width;
     }
