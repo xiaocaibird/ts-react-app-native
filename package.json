@@ -1,0 +1,44 @@
+{
+  "name": "ts-react-app-native",
+  "version": "1.0.3",
+  "description": "build ReactNativeApp by Typescript",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaocaibird/ts-react-app-native.git"
+  },
+  "keywords": [
+    "ts",
+    "typescript",
+    "react",
+    "react-native"
+  ],
+  "author": "CM Zhou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiaocaibird/ts-react-app-native/issues"
+  },
+  "homepage": "https://github.com/xiaocaibird/ts-react-app-native#readme",
+  "dependencies": {
+    "ts-react-app-infrastructure": "1.0.3",
+    "react-native": "0.35.0",
+    "react-native-communications": "^2.1.3",
+    "react-native-device-info": "^0.9.6",
+    "react-native-root-toast": "^1.0.3",
+    "react-native-splash-screen": "^1.0.9"
+  },
+  "files": [
+    "class",
+    "Component",
+    "declare",
+    "helper",
+    "tsconfig.json",
+    "index.ts",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ]
+}

@@ -1,0 +1,2 @@
+# build ReactNativeApp by Typescript #
+============================
