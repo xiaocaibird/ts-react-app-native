@@ -4,4 +4,4 @@
 
 2、该包依赖于ts-react-app-infrastructure。该包需要部分实现ts-react-app-infrastructure中的抽象方法。
 
-3、任何react-native项目开发都基依赖于该包
+3、任何react-native项目开发都依赖于该包
