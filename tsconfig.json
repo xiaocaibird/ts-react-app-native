@@ -1,18 +1,13 @@
 {
     "compilerOptions": {
         //基本配置
-        "module": "es2015",
+        "module": "es6",
         "jsx": "react",
         "moduleResolution": "node",
         "allowJs": true,
-        "experimentalDecorators": true, //es7 特性标签  
-        //输出配置
-        "target": "es2015",
-        "pretty": true,
-        "noEmitOnError": true,
-        "inlineSources": false,
+        "experimentalDecorators": true,
         //错误检查
-        /*"allowSyntheticDefaultImports": true,*/
+        "allowSyntheticDefaultImports": false,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
@@ -20,10 +15,16 @@
         "noImplicitReturns": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        /*"preserveConstEnums":true,*/
-        //tsc
+        "alwaysStrict": true,
+        //输出配置
+        "target": "es6",
+        "pretty": true,
+        "noEmitOnError": true,
         "removeComments": true,
-        "sourceMap": false
+        "importHelpers": true,
+        "inlineSources": false,
+        "sourceMap": false,
+        "preserveConstEnums": false
     },
     "exclude": [
         "node_modules"
