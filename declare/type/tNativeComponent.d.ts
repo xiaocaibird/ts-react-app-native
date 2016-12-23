@@ -1,22 +1,22 @@
 declare namespace tNativeComponent {
-    export namespace Picker {
-        export type item = {
+    namespace Picker {
+        type item = {
             value: string,
             lable: string,
-            children?: dynamicData,
-            mustGetNewChildrenEveryTime?: boolean
+            children?: itemList,
+            alwaysGetChildren?: boolean
         }
 
-        export type dynamicData = item[];
+        type itemList = item[];
 
-        export type branchPickers = item[][];
+        type pickerDataList = item[][];
 
-        export type props = {
+        type props = {
             isDynamic?: boolean,
-            data?: dynamicData | branchPickers,
+            data?: itemList | pickerDataList,
 
             title?: string,
-            topInfoCreateFun?: (selectItems: item[]) => string | null,
+            topInfoCreateFun?: (selectItems: itemList) => string | null,
             branchTitles?: string[],
             titleStyle?: React.TextStyle,
             topInfoStyle?: React.TextStyle,
@@ -33,14 +33,14 @@ declare namespace tNativeComponent {
             getDefaultSelectValuesFun?: () => string[],
             defaultValueButtonShow?: boolean,
             defaultValueButtonText?: string,
-            getChildrenFuns?: ((selectItems: item[], index: number) => item[])[],
+            getChildrenFuns?: ((selectItems: itemList, index: number) => itemList)[],
 
             pressMaskLayerToHide?: boolean
         };
     }
 
-    export namespace TextInput {
-        export type props = {
+    namespace TextInput {
+        type props = {
             setNowFocusNode?: (node: any) => void
         } & React.TextInputProperties;
     }

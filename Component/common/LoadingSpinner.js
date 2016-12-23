@@ -7,9 +7,9 @@ export class LoadingSpinner extends baseNativeComponent {
         const { show = false, color = '#D1D1D1', size } = this.props;
         const styles = getStyles();
         const hide = show ? null : styles.hide;
-        return React.createElement(View, {style: [styles.view, hide]}, 
-            React.createElement(MaskLayer, null), 
-            React.createElement(ActivityIndicator, {animating: true, size: size, color: color}));
+        return React.createElement(View, { style: [styles.view, hide] },
+            React.createElement(MaskLayer, null),
+            React.createElement(ActivityIndicator, { animating: true, size: size, color: color }));
     }
 }
 let _styles;

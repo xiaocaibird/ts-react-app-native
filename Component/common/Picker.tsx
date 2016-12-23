@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
     Picker as RNPicker,
-    StyleSheet,
+    StyleSheet
 } from 'react-native';
 import {
     View,
@@ -19,7 +19,7 @@ const Item = RNPicker.Item!;
 
 type props = tNativeComponent.Picker.props;
 type state = {
-    branchPickers?: tNativeComponent.Picker.branchPickers,
+    branchPickers?: tNativeComponent.Picker.pickerDataList,
     selectValues?: string[],
     show?: boolean,
     opacityAnimated?: Animated.Value,
@@ -32,8 +32,8 @@ export class Picker extends baseNativeComponent<props, state>  {
     private readonly defaultTitle = '请选择';
 
     private selectValues: string[] = [];
-    private selectItems: tNativeComponent.Picker.item[] = [];
-    private newBranchPickers: tNativeComponent.Picker.branchPickers = [];
+    private selectItems: tNativeComponent.Picker.itemList = [];
+    private newBranchPickers: tNativeComponent.Picker.pickerDataList = [];
     private branchLength = 0;
     constructor(props: props) {
         super();
@@ -60,7 +60,7 @@ export class Picker extends baseNativeComponent<props, state>  {
 
         try {
             if (isDynamic) {
-                const linkageData: tNativeComponent.Picker.dynamicData = (data as tNativeComponent.Picker.dynamicData);
+                const linkageData: tNativeComponent.Picker.itemList = (data as tNativeComponent.Picker.itemList);
 
                 if (!(linkageData instanceof Array)) return;
 
@@ -86,7 +86,7 @@ export class Picker extends baseNativeComponent<props, state>  {
                 this.makeNewLinkageList(0, selectItem, props);
             }
             else {
-                const _data = (data as tNativeComponent.Picker.branchPickers);
+                const _data = (data as tNativeComponent.Picker.pickerDataList);
 
                 if (!(_data instanceof Array)) return;
 
@@ -118,11 +118,11 @@ export class Picker extends baseNativeComponent<props, state>  {
         const {getChildrenFuns = []} = props;
 
         if (fatherItem) {
-            let nowList: tNativeComponent.Picker.item[] | undefined;
-            if (fatherItem.mustGetNewChildrenEveryTime || !(fatherItem.children instanceof Array)) {
+            let nowList: tNativeComponent.Picker.itemList | undefined;
+            if (fatherItem.alwaysGetChildren || !(fatherItem.children instanceof Array)) {
                 if (funHp.isFun(getChildrenFuns[index - 1])) {
                     nowList = getChildrenFuns[index - 1](this.selectItems, index - 1);
-                    if (!fatherItem.mustGetNewChildrenEveryTime) {
+                    if (!fatherItem.alwaysGetChildren) {
                         fatherItem.children = nowList;
                     }
                 }
@@ -217,12 +217,12 @@ export class Picker extends baseNativeComponent<props, state>  {
         const styles = getStyles();
         const hide = show ? null : styles.hide;
 
-        const branchTable: tNativeComponent.Picker.item[][][] = [];
+        const branchTable: tNativeComponent.Picker.pickerDataList[] = [];
 
         const rowCount = Math.ceil(this.branchLength / colunmMax);
 
         for (let i = 0; i < rowCount; i++) {
-            const branchRow: tNativeComponent.Picker.item[][] = [];
+            const branchRow: tNativeComponent.Picker.pickerDataList = [];
             for (let j = 0; j < colunmMax; j++) {
                 const bp = branchPickers[i * colunmMax + j];
                 if (!bp) break;
@@ -322,7 +322,7 @@ export class Picker extends baseNativeComponent<props, state>  {
             this.selectValues = defaultSelectValues;
 
         if (this.props.isDynamic) {
-            const nowItem = arrayHp.find(this.newBranchPickers[0], { value: this.selectValues[0] });
+            const nowItem = arrayHp.find(this.newBranchPickers[0], { value: this.selectValues[0] })!;
             this.selectItems[0] = nowItem;
 
             this.makeNewLinkageList(0, nowItem, this.props);
@@ -338,7 +338,7 @@ export class Picker extends baseNativeComponent<props, state>  {
         else {
             this.selectItems = this.selectValues.map(
                 (v, i) => {
-                    return arrayHp.find(this.newBranchPickers[i], { value: v });
+                    return arrayHp.find(this.newBranchPickers[i], { value: v })!;
                 }
             );
 
@@ -355,7 +355,7 @@ export class Picker extends baseNativeComponent<props, state>  {
         if (this.selectValues[branchIndex] == value) return;
 
         this.selectValues[branchIndex] = value;
-        const nowItem = arrayHp.find(this.newBranchPickers[branchIndex], { value: value });
+        const nowItem = arrayHp.find(this.newBranchPickers[branchIndex], { value: value })!;
         this.selectItems[branchIndex] = nowItem;
 
         if (this.props.isDynamic) {

@@ -5,7 +5,7 @@ import { View, TouchableOpacity } from './';
 export class MaskLayer extends baseNativeComponent {
     render() {
         const styles = getStyles();
-        return (React.createElement(View, {style: [styles.opacityBg, this.props.style]}, this.props.onPress ? React.createElement(TouchableOpacity, {onPress: this.props.onPress, style: styles.opacityBgOnPress}) : null));
+        return (React.createElement(View, { style: [styles.opacityBg, this.props.style] }, this.props.onPress ? React.createElement(TouchableOpacity, { onPress: this.props.onPress, style: styles.opacityBgOnPress }) : null));
     }
 }
 let _styles;

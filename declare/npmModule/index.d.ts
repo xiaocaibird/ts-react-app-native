@@ -3,3 +3,4 @@
 /// <reference path="react-native-root-toast.d.ts" />
 /// <reference path="react-native-splash-screen.d.ts" />
 /// <reference path="react-native.d.ts" />
+/// <reference path="module.d.ts" />

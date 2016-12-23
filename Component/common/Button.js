@@ -7,9 +7,8 @@ export class Button extends baseNativeComponent {
     render() {
         const { text, style, textStyle, onPress } = this.props;
         const styles = getStyles();
-        return (React.createElement(TouchableOpacity, {style: [styles.container, style], onPress: onPress}, 
-            React.createElement(Text, {style: [styles.Text, textStyle]}, text)
-        ));
+        return (React.createElement(TouchableOpacity, { style: [styles.container, style], onPress: onPress },
+            React.createElement(Text, { style: [styles.Text, textStyle] }, text)));
     }
 }
 let _styles;

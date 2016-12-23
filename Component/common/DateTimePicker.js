@@ -1,13 +1,6 @@
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
+import * as tslib_1 from "tslib";
 import * as React from 'react';
-import { Picker } from './';
+import { Picker, } from './';
 import { baseNativeComponent } from '../base';
 import { componentHp, dateHp, objHp } from '../../helper';
 var DateTimePickerType;
@@ -200,7 +193,7 @@ export class DateTimePicker extends baseNativeComponent {
             ref: 'Picker',
             defaultSelectValues: this.getDefaultSelectValuesFun()
         });
-        return React.createElement(Picker, __assign({}, defaultProps, this.props, topProps));
+        return React.createElement(Picker, tslib_1.__assign({}, defaultProps, this.props, topProps));
     }
 }
 DateTimePicker.type = DateTimePickerType;
@@ -211,7 +204,7 @@ const getYearsData = (minYear = 1980, maxYear = 2050, yearText = '年') => {
         data.push({
             value: i.toString(),
             lable: i + yearText,
-            mustGetNewChildrenEveryTime: true
+            alwaysGetChildren: true
         });
     }
     return data;
@@ -222,7 +215,7 @@ const getMonthsData = (monthText = '月') => {
         data.push({
             value: (i - 1).toString(),
             lable: i + monthText,
-            mustGetNewChildrenEveryTime: true
+            alwaysGetChildren: true
         });
     }
     return data;
@@ -233,7 +226,7 @@ const getDaysData = (dayText = '日', maxDay) => {
         data.push({
             value: i.toString(),
             lable: i + dayText,
-            mustGetNewChildrenEveryTime: true
+            alwaysGetChildren: true
         });
     }
     return data;
@@ -245,7 +238,7 @@ const getHoursData = (hourText = '时') => {
         data.push({
             value: i.toString(),
             lable: v,
-            mustGetNewChildrenEveryTime: true
+            alwaysGetChildren: true
         });
     }
     return data;
@@ -257,7 +250,7 @@ const getMinutesData = (minuteText = '分') => {
         data.push({
             value: i.toString(),
             lable: v,
-            mustGetNewChildrenEveryTime: true
+            alwaysGetChildren: true
         });
     }
     return data;

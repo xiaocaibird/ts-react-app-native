@@ -31,15 +31,15 @@ export class DateTimePicker extends baseNativeComponent<props, state>  {
     static type = DateTimePickerType;
     static weekTextType = dateHp.weekDayTypeEnum;
 
-    private yearsData: tNativeComponent.Picker.item[] = [];
-    private monthsData: tNativeComponent.Picker.item[] = [];
-    private daysData28: tNativeComponent.Picker.item[] = [];
-    private daysData29: tNativeComponent.Picker.item[] = [];
-    private daysData30: tNativeComponent.Picker.item[] = [];
-    private daysData31: tNativeComponent.Picker.item[] = [];
-    private hoursData: tNativeComponent.Picker.item[] = [];
-    private minutesData: tNativeComponent.Picker.item[] = [];
-    private secondsData: tNativeComponent.Picker.item[] = [];
+    private yearsData: tNativeComponent.Picker.itemList = [];
+    private monthsData: tNativeComponent.Picker.itemList = [];
+    private daysData28: tNativeComponent.Picker.itemList = [];
+    private daysData29: tNativeComponent.Picker.itemList = [];
+    private daysData30: tNativeComponent.Picker.itemList = [];
+    private daysData31: tNativeComponent.Picker.itemList = [];
+    private hoursData: tNativeComponent.Picker.itemList = [];
+    private minutesData: tNativeComponent.Picker.itemList = [];
+    private secondsData: tNativeComponent.Picker.itemList = [];
 
     constructor(props: props) {
         super();
@@ -72,8 +72,8 @@ export class DateTimePicker extends baseNativeComponent<props, state>  {
     render() {
         const {type = DateTimePickerType.date, showSecond = false} = this.props;
 
-        let data: tNativeComponent.Picker.item[] | tNativeComponent.Picker.item[][] = [];
-        let getChildrenFuns: ((selectItem: tNativeComponent.Picker.item[], index: number) => tNativeComponent.Picker.item[])[] = [];
+        let data: tNativeComponent.Picker.itemList | tNativeComponent.Picker.pickerDataList = [];
+        let getChildrenFuns: ((selectItem: tNativeComponent.Picker.itemList, index: number) => tNativeComponent.Picker.itemList)[] = [];
         let isDynamic = false;
         let colunmMax = 3;
 
@@ -131,7 +131,7 @@ export class DateTimePicker extends baseNativeComponent<props, state>  {
         return <Picker {...defaultProps} {...this.props} {...topProps} />
     }
 
-    private topInfoCreateFun = (selectItems: tNativeComponent.Picker.item[]) => {
+    private topInfoCreateFun = (selectItems: tNativeComponent.Picker.itemList) => {
         try {
             const {type = DateTimePickerType.date, weekTextType = dateHp.weekDayTypeEnum.cn_xingQi, showWeek = false } = this.props;
 
@@ -186,7 +186,7 @@ export class DateTimePicker extends baseNativeComponent<props, state>  {
     private getMonths = () => {
         return this.monthsData
     }
-    private getDays = (selectItems: tNativeComponent.Picker.item[] = [], index: number = 0) => {
+    private getDays = (selectItems: tNativeComponent.Picker.itemList = [], index: number = 0) => {
         try {
             const yearItem = selectItems[index - 1];
             let year = 2008;
@@ -236,14 +236,14 @@ export class DateTimePicker extends baseNativeComponent<props, state>  {
 }
 
 const getYearsData = (minYear: number = 1980, maxYear: number = 2050, yearText = '年') => {
-    const data: tNativeComponent.Picker.item[] = [];
+    const data: tNativeComponent.Picker.itemList = [];
 
     for (let i = minYear; i <= maxYear; i++) {
         data.push(
             {
                 value: i.toString(),
                 lable: i + yearText,
-                mustGetNewChildrenEveryTime: true
+                alwaysGetChildren: true
             }
         );
     }
@@ -252,14 +252,14 @@ const getYearsData = (minYear: number = 1980, maxYear: number = 2050, yearText =
 }
 
 const getMonthsData = (monthText = '月') => {
-    const data: tNativeComponent.Picker.item[] = [];
+    const data: tNativeComponent.Picker.itemList = [];
 
     for (let i = 1; i <= 12; i++) {
         data.push(
             {
                 value: (i - 1).toString(),
                 lable: i + monthText,
-                mustGetNewChildrenEveryTime: true
+                alwaysGetChildren: true
             }
         );
     }
@@ -269,13 +269,13 @@ const getMonthsData = (monthText = '月') => {
 
 
 const getDaysData = (dayText = '日', maxDay: number) => {
-    const data: tNativeComponent.Picker.item[] = [];
+    const data: tNativeComponent.Picker.itemList = [];
     for (let i = 1; i <= maxDay; i++) {
         data.push(
             {
                 value: i.toString(),
                 lable: i + dayText,
-                mustGetNewChildrenEveryTime: true
+                alwaysGetChildren: true
             }
         );
     }
@@ -284,7 +284,7 @@ const getDaysData = (dayText = '日', maxDay: number) => {
 }
 
 const getHoursData = (hourText = '时') => {
-    const data: tNativeComponent.Picker.item[] = [];
+    const data: tNativeComponent.Picker.itemList = [];
 
     for (let i = 0; i <= 23; i++) {
         const v = (i < 10 ? '0' + i : i.toString()) + hourText;
@@ -292,7 +292,7 @@ const getHoursData = (hourText = '时') => {
             {
                 value: i.toString(),
                 lable: v,
-                mustGetNewChildrenEveryTime: true
+                alwaysGetChildren: true
             }
         );
     }
@@ -301,7 +301,7 @@ const getHoursData = (hourText = '时') => {
 }
 
 const getMinutesData = (minuteText = '分') => {
-    const data: tNativeComponent.Picker.item[] = [];
+    const data: tNativeComponent.Picker.itemList = [];
 
     for (let i = 0; i <= 59; i++) {
         const v = (i < 10 ? '0' + i : i.toString()) + minuteText;
@@ -309,7 +309,7 @@ const getMinutesData = (minuteText = '分') => {
             {
                 value: i.toString(),
                 lable: v,
-                mustGetNewChildrenEveryTime: true
+                alwaysGetChildren: true
             }
         );
     }
@@ -318,7 +318,7 @@ const getMinutesData = (minuteText = '分') => {
 }
 
 const getSecondsData = (secondText = '秒') => {
-    const data: tNativeComponent.Picker.item[] = [];
+    const data: tNativeComponent.Picker.itemList = [];
 
     for (let i = 0; i <= 59; i++) {
         const v = (i < 10 ? '0' + i : i.toString()) + secondText;

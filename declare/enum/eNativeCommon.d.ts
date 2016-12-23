@@ -1,9 +1,9 @@
 declare namespace eNativeCommon {
-    export const enum navigatorType {
+    const enum navigatorType {
         home, cart, order, user
     }
 
-    export const enum sceneProps {
+    const enum sceneProps {
         user
     }
 }

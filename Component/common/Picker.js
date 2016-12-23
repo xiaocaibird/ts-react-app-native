@@ -143,10 +143,10 @@ export class Picker extends baseNativeComponent {
         const { getChildrenFuns = [] } = props;
         if (fatherItem) {
             let nowList;
-            if (fatherItem.mustGetNewChildrenEveryTime || !(fatherItem.children instanceof Array)) {
+            if (fatherItem.alwaysGetChildren || !(fatherItem.children instanceof Array)) {
                 if (funHp.isFun(getChildrenFuns[index - 1])) {
                     nowList = getChildrenFuns[index - 1](this.selectItems, index - 1);
-                    if (!fatherItem.mustGetNewChildrenEveryTime) {
+                    if (!fatherItem.alwaysGetChildren) {
                         fatherItem.children = nowList;
                     }
                 }
@@ -219,39 +219,35 @@ export class Picker extends baseNativeComponent {
             branchTable.push(branchRow);
         }
         const showBranchTitles = branchTitles.length > 0;
-        return (React.createElement(Animated.View, {style: [styles.container, hide, { opacity: opacityAnimated }]}, 
-            React.createElement(MaskLayer, {onPress: pressMaskLayerToHide ? this.onMaskLayerPress : undefined}), 
-            React.createElement(View, {style: styles.mainContainer}, 
-                React.createElement(View, {style: styles.titleContainer}, 
-                    React.createElement(Text, {style: [styles.title, titleStyle]}, title), 
-                    topInfo ? React.createElement(Text, {style: [styles.topInfo, topInfoStyle]}, topInfo) : null), 
-                React.createElement(View, {style: styles.branchPickersTableView}, 
-                    React.createElement(ScrollView, {contentContainerStyle: styles.branchPickersTableScrollView, bounces: false, showsVerticalScrollIndicator: true}, branchTable.map((row, rowIndex) => {
-                        return (React.createElement(View, {key: 'row' + rowIndex, style: styles.branchPickersRowView}, row instanceof Array && row.map((oneBranch, index) => {
+        return (React.createElement(Animated.View, { style: [styles.container, hide, { opacity: opacityAnimated }] },
+            React.createElement(MaskLayer, { onPress: pressMaskLayerToHide ? this.onMaskLayerPress : undefined }),
+            React.createElement(View, { style: styles.mainContainer },
+                React.createElement(View, { style: styles.titleContainer },
+                    React.createElement(Text, { style: [styles.title, titleStyle] }, title),
+                    topInfo ? React.createElement(Text, { style: [styles.topInfo, topInfoStyle] }, topInfo) : null),
+                React.createElement(View, { style: styles.branchPickersTableView },
+                    React.createElement(ScrollView, { contentContainerStyle: styles.branchPickersTableScrollView, bounces: false, showsVerticalScrollIndicator: true }, branchTable.map((row, rowIndex) => {
+                        return (React.createElement(View, { key: 'row' + rowIndex, style: styles.branchPickersRowView }, row instanceof Array && row.map((oneBranch, index) => {
                             const branchIndex = rowIndex * colunmMax + index;
                             const _branchTitleStyle = branchTitleStyle instanceof Array ? branchTitleStyle[branchIndex] : branchTitleStyle;
                             const _branchPickersStyles = branchPickersStyles instanceof Array ? branchPickersStyles[branchIndex] : branchPickersStyles;
                             const _branchPickersItemStyles = branchPickersItemStyles instanceof Array ? branchPickersItemStyles[branchIndex] : branchPickersItemStyles;
-                            return (React.createElement(View, {key: 'pickerView' + index, style: styles.branchPickerContainer}, 
+                            return (React.createElement(View, { key: 'pickerView' + index, style: styles.branchPickerContainer },
                                 showBranchTitles ?
-                                    React.createElement(Text, {style: [styles.branchTitle, _branchTitleStyle]}, branchTitles[branchIndex]) : null, 
-                                React.createElement(RNPicker, {style: [styles.branchPicker, _branchPickersStyles], itemStyle: [styles.itemStyle, _branchPickersItemStyles], selectedValue: selectValues[branchIndex], prompt: branchTitles[branchIndex], onValueChange: (v, i) => { this.onValueChange(v.toString(), i, branchIndex); }}, oneBranch instanceof Array && oneBranch.map((oneItem) => {
-                                    return React.createElement(Item, {key: 'item+' + branchIndex + oneItem.value, value: oneItem.value, label: oneItem.lable});
+                                    React.createElement(Text, { style: [styles.branchTitle, _branchTitleStyle] }, branchTitles[branchIndex]) : null,
+                                React.createElement(RNPicker, { style: [styles.branchPicker, _branchPickersStyles], itemStyle: [styles.itemStyle, _branchPickersItemStyles], selectedValue: selectValues[branchIndex], prompt: branchTitles[branchIndex], onValueChange: (v, i) => { this.onValueChange(v.toString(), i, branchIndex); } }, oneBranch instanceof Array && oneBranch.map((oneItem) => {
+                                    return React.createElement(Item, { key: 'item+' + branchIndex + oneItem.value, value: oneItem.value, label: oneItem.lable });
                                 }))));
                         })));
-                    }))
-                ), 
-                React.createElement(View, {style: styles.buttonContainer}, 
-                    React.createElement(TouchableOpacity, {style: [styles.button, styles.buttonBorder], onPress: this.onOkPress}, 
-                        React.createElement(Text, {style: [styles.buttonText, buttonStyle]}, okButtonText)
-                    ), 
+                    }))),
+                React.createElement(View, { style: styles.buttonContainer },
+                    React.createElement(TouchableOpacity, { style: [styles.button, styles.buttonBorder], onPress: this.onOkPress },
+                        React.createElement(Text, { style: [styles.buttonText, buttonStyle] }, okButtonText)),
                     defaultValueButtonShow ?
-                        React.createElement(TouchableOpacity, {style: [styles.button, styles.buttonBorder], onPress: this.onDefaultValueButtonPress}, 
-                            React.createElement(Text, {style: [styles.buttonText, buttonStyle]}, defaultValueButtonText)
-                        ) : null, 
-                    React.createElement(TouchableOpacity, {style: styles.button, onPress: this.onCancelPress}, 
-                        React.createElement(Text, {style: [styles.buttonText, buttonStyle]}, cancelButtonText)
-                    )))));
+                        React.createElement(TouchableOpacity, { style: [styles.button, styles.buttonBorder], onPress: this.onDefaultValueButtonPress },
+                            React.createElement(Text, { style: [styles.buttonText, buttonStyle] }, defaultValueButtonText)) : null,
+                    React.createElement(TouchableOpacity, { style: styles.button, onPress: this.onCancelPress },
+                        React.createElement(Text, { style: [styles.buttonText, buttonStyle] }, cancelButtonText))))));
     }
 }
 let _styles;
