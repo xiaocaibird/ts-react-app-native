@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { WebView as RNWebView, StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
 type props = {} & React.WebViewProperties;
 type state = tCommon.reactState;
 
-export class WebView extends baseNativeComponent<props, state>  {
+export class WebView extends ANativeComponent<props, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

@@ -1,9 +1,9 @@
 import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { WebView as RNWebView, StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
-export class WebView extends baseNativeComponent {
+export class WebView extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

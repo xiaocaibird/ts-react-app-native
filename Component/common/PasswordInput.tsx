@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { TextInput } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
 
 type props = {} & tNativeComponent.TextInput.props;
 type state = tCommon.reactState;
 
-export class PasswordInput extends baseNativeComponent<props, state>  {
+export class PasswordInput extends ANativeComponent<props, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

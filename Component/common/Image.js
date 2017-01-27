@@ -1,9 +1,9 @@
 import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { Image as RNImage, StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
-export class Image extends baseNativeComponent {
+export class Image extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import {
     Image,
     TouchableOpacity
@@ -14,7 +14,7 @@ type props = React.ImageProperties & {
 }
 type state = tCommon.reactState;
 
-export class ImageButton extends baseNativeComponent<props, state> {
+export class ImageButton extends ANativeComponent<props, state> {
     render() {
         const { style, imageStyle, onPress} = this.props;
         const defaultStyles = getStyles();

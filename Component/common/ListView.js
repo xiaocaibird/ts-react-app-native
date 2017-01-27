@@ -1,10 +1,10 @@
 import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { ListView as RNListView, RefreshControl, StyleSheet, Keyboard } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { funHp, componentHp } from '../../helper';
 import { NativeFactory as f } from '../../class/Factory';
-export class ListView extends baseNativeComponent {
+export class ListView extends ANativeComponent {
     constructor(props) {
         super(props);
         this.onContentSizeChange = (w, h) => {

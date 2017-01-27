@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Image as RNImage, StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
 type props = {} & React.ImageProperties;
 type state = tCommon.reactState;
 
-export class Image extends baseNativeComponent<props, state>  {
+export class Image extends ANativeComponent<props, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import {
     View,
     TouchableOpacity
@@ -12,7 +12,7 @@ type props = {
 }
 type state = tCommon.reactState;
 
-export class MaskLayer extends baseNativeComponent<props, state> {
+export class MaskLayer extends ANativeComponent<props, state> {
     render() {
         const styles = getStyles();
         return (

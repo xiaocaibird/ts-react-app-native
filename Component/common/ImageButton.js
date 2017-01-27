@@ -1,10 +1,10 @@
 import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { Image, TouchableOpacity } from './';
 import { componentHp } from '../../helper';
-export class ImageButton extends baseNativeComponent {
+export class ImageButton extends ANativeComponent {
     render() {
         const { style, imageStyle, onPress } = this.props;
         const defaultStyles = getStyles();

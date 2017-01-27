@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import {
     Text,
     TouchableOpacity
@@ -15,7 +15,7 @@ type props = {
 }
 type state = tCommon.reactState;
 
-export class Button extends baseNativeComponent<props, state> {
+export class Button extends ANativeComponent<props, state> {
     render() {
         const {text, style, textStyle, onPress} = this.props;
         const styles = getStyles();

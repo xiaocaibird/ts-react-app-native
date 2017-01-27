@@ -11,7 +11,7 @@ import {
     Animated,
     ScrollView
 } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { NativeFactory as f } from '../../class/Factory';
 import { arrayHp, objHp, funHp } from '../../helper';
 
@@ -27,7 +27,7 @@ type state = {
 }
 
 
-export class Picker extends baseNativeComponent<props, state>  {
+export class Picker extends ANativeComponent<props, state>  {
     private readonly maxBranchLength = 30;
     private readonly defaultTitle = '请选择';
 

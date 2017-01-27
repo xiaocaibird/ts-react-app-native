@@ -1,10 +1,10 @@
 import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { ScrollView as RNScrollView, RefreshControl, StyleSheet, Keyboard } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { funHp, componentHp } from '../../helper';
 import { NativeFactory as f } from '../../class/Factory';
-export class ScrollView extends baseNativeComponent {
+export class ScrollView extends ANativeComponent {
     constructor(props) {
         super(props);
         this.setNowFocusNode = (node) => {

@@ -1,5 +1,5 @@
-import { baseNativeComponent } from './';
-export class baseNativeSceneComponent extends baseNativeComponent {
+import { ANativeComponent } from './';
+export class ANativeSceneComponent extends ANativeComponent {
     constructor() {
         super(...arguments);
         this._sceneProps = [];

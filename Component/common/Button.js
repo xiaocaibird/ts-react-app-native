@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { Text, TouchableOpacity } from './';
 import { NativeFactory as f } from '../../class/Factory';
-export class Button extends baseNativeComponent {
+export class Button extends ANativeComponent {
     render() {
         const { text, style, textStyle, onPress } = this.props;
         const styles = getStyles();

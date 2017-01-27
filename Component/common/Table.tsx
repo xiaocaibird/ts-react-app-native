@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { View, Text } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
 import { NativeFactory as f } from '../../class/Factory';
 
@@ -9,7 +9,7 @@ type viewProps = {} & React.ViewProperties;
 type textProps = {} & React.TextProperties;
 type state = tCommon.reactState;
 
-class Tr extends baseNativeComponent<viewProps, state>  {
+class Tr extends ANativeComponent<viewProps, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -19,7 +19,7 @@ class Tr extends baseNativeComponent<viewProps, state>  {
     }
 }
 
-class Th extends baseNativeComponent<viewProps, state>  {
+class Th extends ANativeComponent<viewProps, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -28,7 +28,7 @@ class Th extends baseNativeComponent<viewProps, state>  {
         return <View {...thDefaultProps} {...this.props} {...topProps} />
     }
 }
-class ThText extends baseNativeComponent<textProps, state>  {
+class ThText extends ANativeComponent<textProps, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -38,7 +38,7 @@ class ThText extends baseNativeComponent<textProps, state>  {
     }
 }
 
-class Td extends baseNativeComponent<viewProps, state>  {
+class Td extends ANativeComponent<viewProps, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -47,7 +47,7 @@ class Td extends baseNativeComponent<viewProps, state>  {
         return <View {...tdDefaultProps} {...this.props} {...topProps} />
     }
 }
-class TdText extends baseNativeComponent<textProps, state>  {
+class TdText extends ANativeComponent<textProps, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -57,7 +57,7 @@ class TdText extends baseNativeComponent<textProps, state>  {
     }
 }
 
-export class Table extends baseNativeComponent<viewProps, state>  {
+export class Table extends ANativeComponent<viewProps, state>  {
     static Tr = Tr;
     static Th = Th;
     static ThText = ThText;

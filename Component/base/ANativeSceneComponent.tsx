@@ -1,6 +1,6 @@
-import { baseNativeComponent } from './';
+import { ANativeComponent } from './';
 
-export abstract class baseNativeSceneComponent<P, S> extends baseNativeComponent<P, S> {
+export abstract class ANativeSceneComponent<P, S> extends ANativeComponent<P, S> {
     protected _sceneProps: eNativeCommon.sceneProps[] = [];
     get SceneProps() {
         return this._sceneProps;

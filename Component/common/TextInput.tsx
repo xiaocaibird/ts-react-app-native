@@ -3,14 +3,14 @@ import { TextInput as RNTextInput, StyleSheet, findNodeHandle } from 'react-nati
 import TextStylePropTypes from 'react-native/Libraries/Text/TextStylePropTypes';
 import ViewStylePropTypes from 'react-native/Libraries/Components/View/ViewStylePropTypes';
 import { View } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp, objHp } from '../../helper';
 import { NativeFactory as f } from '../../class/Factory';
 
 type props = tNativeComponent.TextInput.props;
 type state = tCommon.reactState;
 
-export class TextInput extends baseNativeComponent<props, state>  {
+export class TextInput extends ANativeComponent<props, state>  {
     render() {
         if (f.Device.IsIOS) {
             const defaultStyles = getStyles();

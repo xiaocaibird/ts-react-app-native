@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Text as RNText, StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { NativeFactory as f } from '../../class/Factory';
 import { componentHp } from '../../helper';
 
 type props = {} & React.TextProperties;
 type state = tCommon.reactState;
 
-export class Text extends baseNativeComponent<props, state>  {
+export class Text extends ANativeComponent<props, state>  {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

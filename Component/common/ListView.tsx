@@ -5,7 +5,7 @@ import {
     StyleSheet,
     Keyboard
 } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { funHp, componentHp } from '../../helper';
 import { NativeFactory as f } from '../../class/Factory';
 
@@ -32,7 +32,7 @@ type state = {
     refreshTitle?: string
 }
 
-export class ListView extends baseNativeComponent<props, state> {
+export class ListView extends ANativeComponent<props, state> {
     static DataSource = RNListView.DataSource;
 
     private keyboardWillShowListener: React.EmitterSubscription;

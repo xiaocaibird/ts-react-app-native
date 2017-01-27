@@ -5,7 +5,7 @@ import {
     StyleSheet,
     Keyboard
 } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { funHp, componentHp } from '../../helper';
 import { NativeFactory as f } from '../../class/Factory';
 
@@ -30,7 +30,7 @@ type state = {
     refreshTitle?: string
 }
 
-export class ScrollView extends baseNativeComponent<props, state> {
+export class ScrollView extends ANativeComponent<props, state> {
     private keyboardWillShowListener: React.EmitterSubscription;
     private keyboardWillHideListener: React.EmitterSubscription;
 

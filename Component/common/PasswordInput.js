@@ -2,9 +2,9 @@ import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { TextInput } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
-export class PasswordInput extends baseNativeComponent {
+export class PasswordInput extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

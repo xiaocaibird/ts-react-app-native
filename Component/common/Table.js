@@ -2,10 +2,10 @@ import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { View, Text } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp } from '../../helper';
 import { NativeFactory as f } from '../../class/Factory';
-class Tr extends baseNativeComponent {
+class Tr extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -14,7 +14,7 @@ class Tr extends baseNativeComponent {
         return React.createElement(View, tslib_1.__assign({}, trDefaultProps, this.props, topProps));
     }
 }
-class Th extends baseNativeComponent {
+class Th extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -23,7 +23,7 @@ class Th extends baseNativeComponent {
         return React.createElement(View, tslib_1.__assign({}, thDefaultProps, this.props, topProps));
     }
 }
-class ThText extends baseNativeComponent {
+class ThText extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -32,7 +32,7 @@ class ThText extends baseNativeComponent {
         return React.createElement(Text, tslib_1.__assign({}, thTextDefaultProps, this.props, topProps));
     }
 }
-class Td extends baseNativeComponent {
+class Td extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -41,7 +41,7 @@ class Td extends baseNativeComponent {
         return React.createElement(View, tslib_1.__assign({}, tdDefaultProps, this.props, topProps));
     }
 }
-class TdText extends baseNativeComponent {
+class TdText extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({
@@ -50,7 +50,7 @@ class TdText extends baseNativeComponent {
         return React.createElement(Text, tslib_1.__assign({}, tdTextDefaultProps, this.props, topProps));
     }
 }
-export class Table extends baseNativeComponent {
+export class Table extends ANativeComponent {
     render() {
         const defaultStyles = getStyles();
         const topProps = componentHp.createTopProps({

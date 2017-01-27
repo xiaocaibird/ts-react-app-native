@@ -1,3 +1,3 @@
-export * from './baseNativeComponent';
+export * from './ANativeComponent';
 
-export * from './baseNativeSceneComponent'
+export * from './ANativeSceneComponent'

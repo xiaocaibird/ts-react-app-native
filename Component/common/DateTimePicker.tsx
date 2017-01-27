@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
     Picker,
 } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp, dateHp, objHp } from '../../helper';
 
 type props = tNativeComponent.Picker.props & {
@@ -27,7 +27,7 @@ enum DateTimePickerType {
     time
 }
 
-export class DateTimePicker extends baseNativeComponent<props, state>  {
+export class DateTimePicker extends ANativeComponent<props, state>  {
     static type = DateTimePickerType;
     static weekTextType = dateHp.weekDayTypeEnum;
 

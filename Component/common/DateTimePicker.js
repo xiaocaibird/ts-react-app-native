@@ -1,7 +1,7 @@
 import * as tslib_1 from "tslib";
 import * as React from 'react';
 import { Picker, } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { componentHp, dateHp, objHp } from '../../helper';
 var DateTimePickerType;
 (function (DateTimePickerType) {
@@ -13,7 +13,7 @@ var DateTimePickerType;
     DateTimePickerType[DateTimePickerType["day_time"] = 5] = "day_time";
     DateTimePickerType[DateTimePickerType["time"] = 6] = "time";
 })(DateTimePickerType || (DateTimePickerType = {}));
-export class DateTimePicker extends baseNativeComponent {
+export class DateTimePicker extends ANativeComponent {
     constructor(props) {
         super();
         this.yearsData = [];

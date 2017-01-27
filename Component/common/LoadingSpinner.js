@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { MaskLayer, View, ActivityIndicator } from './';
-import { baseNativeComponent } from '../base';
-export class LoadingSpinner extends baseNativeComponent {
+import { ANativeComponent } from '../base';
+export class LoadingSpinner extends ANativeComponent {
     render() {
         const { show = false, color = '#D1D1D1', size } = this.props;
         const styles = getStyles();

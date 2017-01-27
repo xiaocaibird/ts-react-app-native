@@ -5,7 +5,7 @@ import {
     View,
     ActivityIndicator
 } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 
 type props = {
     show: boolean,
@@ -14,7 +14,7 @@ type props = {
 };
 type state = tCommon.reactState;
 
-export class LoadingSpinner extends baseNativeComponent<props, state> {
+export class LoadingSpinner extends ANativeComponent<props, state> {
     render() {
         const {show = false, color = '#D1D1D1', size} = this.props;
         const styles = getStyles();

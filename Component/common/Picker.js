@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Picker as RNPicker, StyleSheet } from 'react-native';
 import { View, Text, TouchableOpacity, MaskLayer, Animated, ScrollView } from './';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { NativeFactory as f } from '../../class/Factory';
 import { arrayHp, objHp, funHp } from '../../helper';
 const Item = RNPicker.Item;
-export class Picker extends baseNativeComponent {
+export class Picker extends ANativeComponent {
     constructor(props) {
         super();
         this.maxBranchLength = 30;

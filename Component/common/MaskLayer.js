@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { baseNativeComponent } from '../base';
+import { ANativeComponent } from '../base';
 import { View, TouchableOpacity } from './';
-export class MaskLayer extends baseNativeComponent {
+export class MaskLayer extends ANativeComponent {
     render() {
         const styles = getStyles();
         return (React.createElement(View, { style: [styles.opacityBg, this.props.style] }, this.props.onPress ? React.createElement(TouchableOpacity, { onPress: this.props.onPress, style: styles.opacityBgOnPress }) : null));
